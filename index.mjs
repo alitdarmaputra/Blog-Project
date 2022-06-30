@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import ejs from "ejs";
 import mongoose from "mongoose";
@@ -21,7 +22,7 @@ import { authMiddleware } from "./middleware/authMiddleware.mjs";
 import { redirectAuthMiddleware } from "./middleware/redirectIfAuthenticatedMiddleware.mjs";
 import flash from "connect-flash";
 
-mongoose.connect("mongodb+srv://alitdarmaputra:denpasar05042002@cluster0.djtbx.mongodb.net/my_database", {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true});
 
 const app = new express();
 
